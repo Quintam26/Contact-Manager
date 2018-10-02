@@ -32,17 +32,36 @@ class EditContact extends Component {
     if(name === '') {
       this.setState({ errors: { name: 'Name is required' }});
       return;
-    }
+    };
+
     if(email === '') {
       this.setState({ errors: { email: 'Email is required' }});
       return;
-    }
+    };
+
     if(phone === '') {
       this.setState({ errors: { phone: 'Phone is required' }});
       return;
-    }
+    };
 
-    this.setState({ name: '', email: '', phone: '', errors: {} });
+    const updateContact = {
+      name, 
+      email, 
+      phone
+    };
+
+    const { id } = this.props.match.params;
+
+    const res = await axios.put(`https://jsonplaceholder.typicode.com/users/${id}`, updateContact);
+
+    dispatch({ type: 'UPDATE_CONTACT', payload: res.data });
+
+    this.setState({ 
+      name: '', 
+      email: '', 
+      phone: '', 
+      errors: {} 
+    });
 
     this.props.history.push('/');
   };
