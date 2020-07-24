@@ -1,4 +1,4 @@
-This project was created using React, Redux, and Bootstrap. It's a simple app that allows users manage their conatcts using CRUD fucntionality.
+This project was created using React, Redux, and Bootstrap. It's a simple app that allows users to manage their contacts using CRUD fucntionality.
 
 ## Get Started
 1. Fork and clone the repo.
